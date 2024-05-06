@@ -4205,7 +4205,7 @@ spec:
       containers:
         - name: volcano-scheduler
 #          image: volcanosh/vc-scheduler:latest
-          image: fxzscheck-1385124d.ecis.huabei-3.cmecloud.cn/kirnu/vc-scheduler:49f0104ae3c78de2bfcb576d9cc8dcdb8b86c72f
+          image: fxzscheck-1385124d.ecis.huabei-3.cmecloud.cn/kirnu/vc-scheduler:691b1812f1d6192f262bcac855e3aa5d411fcf9a
           args:
             - --logtostderr
             - --scheduler-conf=/volcano.scheduler/volcano-scheduler.conf
@@ -4217,7 +4217,7 @@ spec:
           env:
             - name: DEBUG_SOCKET_DIR
               value: /tmp/klog-socks
-          imagePullPolicy: IfNotPresent
+#          imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: scheduler-config
               mountPath: /volcano.scheduler
