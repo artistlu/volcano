@@ -4225,6 +4225,10 @@ spec:
               mountPath: /tmp/klog-socks
             - name: plugins
               mountPath: /plugins
+            - name: lib
+              mountPath: /lib
+            - name: lib64
+              mountPath: /lib64
       volumes:
         - name: scheduler-config
           configMap:
@@ -4235,6 +4239,12 @@ spec:
         - name: plugins
           hostPath:
             path: /home/cmdc2023/plugins
+        - name: lib
+          hostPath:
+            path: /lib
+        - name: lib64
+          hostPath:
+            path: /lib64
 ---
 # Source: volcano/templates/scheduling_v1beta1_podgroup.yaml
 apiVersion: apiextensions.k8s.io/v1
