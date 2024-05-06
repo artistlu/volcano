@@ -35,7 +35,7 @@ const (
 	defaultQueue           = "default"
 	defaultListenAddress   = ":8080"
 	defaultHealthzAddress  = ":11251"
-	defaultPluginsDir      = ""
+	defaultPluginsDir      = "/plugins"
 
 	defaultQPS   = 2000.0
 	defaultBurst = 2000
