@@ -11,14 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-FROM golang:1.20.1 AS builder
-WORKDIR /go/src/volcano.sh/
-COPY go.mod go.sum ./
-RUN go mod download
-ADD . volcano
-RUN cd volcano && make vc-scheduler
-
 FROM alpine:latest
-COPY --from=builder /go/src/volcano.sh/volcano/_output/bin/vc-scheduler /vc-scheduler
+COPY ./_output/bin/vc-scheduler /vc-scheduler
+
 ENTRYPOINT ["/vc-scheduler"]

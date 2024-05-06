@@ -93,8 +93,8 @@ vcctl: init
 
 image_bins: vc-scheduler vc-controller-manager vc-webhook-manager
 
-images:
-	for name in controller-manager scheduler webhook-manager; do\
+images: vc-scheduler
+	for name in scheduler; do\
 		docker buildx build -t "${IMAGE_PREFIX}/vc-$$name:$(TAG)" . -f ./installer/dockerfile/$$name/Dockerfile --output=type=${BUILDX_OUTPUT_TYPE} --platform ${DOCKER_PLATFORMS} --build-arg APK_MIRROR=${APK_MIRROR}; \
 	done
 
