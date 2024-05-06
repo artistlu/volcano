@@ -4205,7 +4205,7 @@ spec:
       containers:
         - name: volcano-scheduler
 #          image: volcanosh/vc-scheduler:latest
-          image: fxzscheck-1385124d.ecis.huabei-3.cmecloud.cn/kirnu/vc-scheduler:691b1812f1d6192f262bcac855e3aa5d411fcf9a
+          image: fxzscheck-1385124d.ecis.huabei-3.cmecloud.cn/kirnu/vc-scheduler:latest
           args:
             - --logtostderr
             - --scheduler-conf=/volcano.scheduler/volcano-scheduler.conf
