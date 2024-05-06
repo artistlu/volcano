@@ -46,6 +46,7 @@ import (
 var logFlushFreq = pflag.Duration("log-flush-frequency", 5*time.Second, "Maximum number of seconds between log flushes")
 
 func main() {
+	klog.Infoln("zhanglu test: %v", "debug")
 	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	klog.InitFlags(nil)
