@@ -62,6 +62,8 @@ func GetPluginBuilder(name string) (PluginBuilder, bool) {
 // LoadCustomPlugins loads custom implement plugins
 func LoadCustomPlugins(pluginsDir string) error {
 	pluginPaths, _ := filepath.Glob(fmt.Sprintf("%s/*.so", pluginsDir))
+	klog.V(4).Infof("[zhanglu] Custom pluginsDir %s ", pluginsDir)
+	klog.V(4).Infof("[zhanglu] Custom pluginPaths %s ", pluginPaths)
 	for _, pluginPath := range pluginPaths {
 		klog.V(4).Infof("[zhanglu] Custom plugin path %s ", pluginPath)
 		pluginBuilder, err := loadPluginBuilder(pluginPath)
