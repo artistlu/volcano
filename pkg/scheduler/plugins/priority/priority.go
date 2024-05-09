@@ -42,6 +42,8 @@ func (pp *priorityPlugin) Name() string {
 }
 
 func (pp *priorityPlugin) OnSessionOpen(ssn *framework.Session) {
+	klog.Infoln("[zhanglu] priority.OnSessionOpen")
+
 	taskOrderFn := func(l interface{}, r interface{}) int {
 		lv := l.(*api.TaskInfo)
 		rv := r.(*api.TaskInfo)
