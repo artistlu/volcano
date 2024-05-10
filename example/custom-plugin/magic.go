@@ -18,6 +18,7 @@ package main // note!!! package must be named main
 
 import (
 	"k8s.io/klog/v2"
+	"volcano.sh/volcano/pkg/scheduler/api"
 
 	"volcano.sh/volcano/pkg/scheduler/framework"
 )
@@ -36,6 +37,24 @@ func New(arguments framework.Arguments) framework.Plugin {
 }
 
 func (mp *magicPlugin) OnSessionOpen(ssn *framework.Session) {
+
+	ssn.AddPredicateFn("magic", func(task *api.TaskInfo, node *api.NodeInfo) ([]*api.Status, error) {
+		klog.Infoln("[zhanglu] AddPredicateFn node name", node.Name)
+		klog.Infoln("[zhanglu] AddPredicateFn Pod.Labels", task.Pod.Labels)
+		klog.Infoln("[zhanglu] AddPredicateFn Pod.String()", task.Pod.String())
+
+		return nil, nil
+
+	})
+
+	ssn.AddNodeOrderFn("magic", func(task *api.TaskInfo, node *api.NodeInfo) (float64, error) {
+		klog.Infoln("[zhanglu] AddNodeOrderFn node name", node.Name)
+		klog.Infoln("[zhanglu] AddNodeOrderFn Pod.Labels", task.Pod.Labels)
+		klog.Infoln("[zhanglu] AddNodeOrderFn Pod.String()", task.Pod.String())
+
+		return 0, nil
+	})
+
 	klog.V(4).Info("Enter magic plugin ...")
 }
 
